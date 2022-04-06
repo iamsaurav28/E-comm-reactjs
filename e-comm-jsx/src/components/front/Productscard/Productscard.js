@@ -1,15 +1,13 @@
-import React from 'react'
-import './Productscard.css';
 
 
-const Productscard = () => {
-     
-     return (
-       <div >
-               <h1>this is product</h1>
-         </div>
+ function Productscard() {
 
-  )
-}
+  return (
+    <div className="">
+      <h1>this is productscard</h1>
 
-export default  Productscard;
+    </div>
+  );
+      }
+
+      export default Productscard;

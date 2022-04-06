@@ -1,8 +1,8 @@
 
 import React from "react";
+import Home from "./components/front/Home/Home";
 import Header from "./components/front/Header/Header";
-import Routes from "./components/front/Routes/Routes";
-import { BrowserRouter as Router } from "react-router-dom";
+import AllRoutes from "./components/front/Routes/Allroutes";
 import Footer from "./components/front/Footer/Footer";
 
 
@@ -11,11 +11,12 @@ function App() {
 
   return (
   <div>
-    <Router>
+    
+    <Home />
     <Header />
-    <Routes />
+    <AllRoutes />
     <Footer />
-    </Router>
+    
    
   </div>
   );

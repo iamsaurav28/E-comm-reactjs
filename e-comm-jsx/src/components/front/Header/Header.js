@@ -39,8 +39,7 @@ const Header =() =>{
               <ul>
                    <li>
                         <Link to="/cart">
-                             <i className='fa fa-shopping-cart'/>
-       
+                           Cart
                        </Link>
                    </li>
               </ul>
