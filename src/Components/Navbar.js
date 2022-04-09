@@ -1,8 +1,11 @@
 import "../styles.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../cart-context";
 
 export default function Navbar() {
+  const { state, dispatch } = useCart();
   return (
+
     <div className="navigation-bar">
       <span className="navigation-bar-logo">
         SAADGI ZON
@@ -10,7 +13,11 @@ export default function Navbar() {
       <nav>
         <ul className="navigation-bar-links">
           <li className="color-white">
+            Welcome {state.user?.username || "Guest"}
             <Link to="/edit">
+              <span role="img" aria-label="edit option">
+                📝
+              </span>
             </Link>
           </li>
           <li>
@@ -30,22 +37,35 @@ export default function Navbar() {
           <li>
             <button className="icon-btn-badge">
               <Link to="wishlist">
-            Wishlist
+                <i className="material-icons-outlined md-36">favorite_border</i>
+                {state.wishlist.length ? (
+                  <span className="badge">{state.wishlist.length}</span>
+                ) : (
+                  <></>
+                )}
               </Link>
             </button>
           </li>
           <li>
             <button className="icon-btn-badge">
               <Link to="cart">
-               Cart
+                <i className="material-icons-outlined md-36">shopping_cart</i>
+                {state.cart.length ? (
+                  <span className="badge">{state.cart.length}</span>
+                ) : (
+                  <></>
+                )}
               </Link>
             </button>
-          </li>        
-              <li
+          </li>
+          {state.user.username && (
+            <li
               className="color-white"
+              onClick={() => dispatch({ type: "LOGOUT_USER", payload: {} })}
             >
               Logout
             </li>
+          )}{" "}
         </ul>
       </nav>
     </div>
