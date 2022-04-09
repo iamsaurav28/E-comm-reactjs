@@ -14,3 +14,25 @@ export const getCart = async () => {
     return res;
   }
 };
+
+export const addToCart = async (id) => {
+  const res = await axios.post(`${url}/cart/${id}`);
+  if (res.status === 200) {
+    return res;
+  }
+};
+
+export const updateCart = async (id) => {
+  const res = await axios.put(`${url}/cart/${id}`);
+  if (res.status === 200) {
+    return res;
+  }
+};
+
+export const removeFromCart = async (id) => {
+  const res = await axios.delete(`${url}/cart/${id}`);
+  if (res.status === 200) {
+    return res;
+  }
+};
+
