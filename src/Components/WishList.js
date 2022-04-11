@@ -1,9 +1,0 @@
-import "../styles.css";
-
-
-  return (
-    <>
-
-    </>
-  );
-}
