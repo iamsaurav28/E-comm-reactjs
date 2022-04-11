@@ -15,3 +15,25 @@ export const getCart = async () => {
   }
 };
 
+
+export const getWishlist = async () => {
+  const res = await axios.get(`${url}/wishlist`);
+  if (res.status === 200) {
+    return res;
+  }
+};
+
+export const addToWishlist = async (id) => {
+  const res = await axios.post(`${url}/wishlist/${id}`);
+  if (res.status === 200) {
+    return res;
+  }
+};
+
+export const removeFromWishlist = async (id) => {
+  const res = await axios.delete(`${url}/wishlist/${id}`);
+  if (res.status === 200) {
+    return res;
+  }
+};
+
