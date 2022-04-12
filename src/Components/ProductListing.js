@@ -69,6 +69,13 @@ export default function Listing() {
 const Product = ({ item, condn, cartcondn, btn_class, btn_type }) => {
   const { dispatch } = useCart();
 
+  const handleWishlist = (condn, id) => {
+    if (condn) {
+      dispatch({ type: "REMOVE_FROM_WISHLIST", payload: { id } });
+    } else {
+      dispatch({ type: "ADD_TO_WISHLIST", payload: { id } });
+    }
+  };
   
   const handleAddToCart = (id) => {
     dispatch({ type: "ADD_TO_CART", payload: { id } });
