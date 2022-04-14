@@ -2,14 +2,31 @@ import "./styles.css";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import { Routes, Route } from "react-router-dom";
-import Listing from "./Components/ProductListing";
+import { Checkout } from "./Components/Checkout";
 import Cart from "./Components/Cart";
+import Listing from "./Components/ProductListing";
 import WishList from "./Components/WishList";
+import { useCart } from "./cart-context";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import Edit from "./Components/Edit";
+import { SignIn } from "./Auth/SignIn";
+import { SignUp } from "./Auth/SignUp";
 import Footer from "./Components/Footer";
 
 
 export default function App() {
-
+  let navigate = useNavigate();
+  const { state } = useCart();
+  console.log(state)
+  useEffect(() => {
+    if (state.user.username) {
+      navigate("/");
+    } else {
+      navigate("signin");
+    }
+  }, [navigate, state.user.username]);
   return (
     <div className="App">
       <Navbar />
@@ -18,9 +35,33 @@ export default function App() {
         <Route path="/" element={<Home />} />
           
           <Route path="/productlisting" element={<Listing />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<WishList />} />
-  
+          <PrivateRoute
+            condition={state.user.username}
+            redirectPath="/signin"
+            path="/cart"
+            element={<Cart />}
+          />
+          <PrivateRoute
+            condition={state.user.username}
+            redirectPath="/signin"
+            path="/wishlist"
+            element={<WishList />}
+          />
+          <PrivateRoute
+            condition={state.user.username}
+            redirectPath="/signin"
+            path="/edit"
+            element={<Edit />}
+          />
+          <PrivateRoute
+            condition={state.user.username}
+            redirectPath="/signin"
+            path="/checkout"
+            element={<Checkout />}
+          />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Routes>

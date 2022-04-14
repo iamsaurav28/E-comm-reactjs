@@ -1,4 +1,4 @@
-
+import { INITIALSTATE } from "../cart-context";
 export function reducer(state, { type, payload }) {
   switch (type) {
     case "SET_INITIAL": {
@@ -56,6 +56,29 @@ export function reducer(state, { type, payload }) {
         newState.wishlist = newState.wishlist.filter((id) => id !== payload.id);
       }
       localStorage.setItem("JWT", JSON.stringify(newState));
+      return newState;
+    }
+    case "LOGIN_USER": {
+      const newState = JSON.parse(JSON.stringify(state));
+      newState.user.username = payload.username;
+      newState.user.id = payload.id;
+      localStorage.setItem("JWT", JSON.stringify(newState));
+      return newState;
+    }
+    case "LOGOUT_USER": {
+      const newState = JSON.parse(JSON.stringify(state));
+      INITIALSTATE.products = [...newState.products];
+      localStorage.clear();
+      return INITIALSTATE;
+    }
+    case "TOGGLE_HOME_LOADING": {
+      const newState = JSON.parse(JSON.stringify(state));
+      newState.loader.home = !newState.loader.home;
+      return newState;
+    }
+    case "TOGGLE_CART_LOADING": {
+      const newState = JSON.parse(JSON.stringify(state));
+      newState.loader.cart = !newState.loader.cart;
       return newState;
     }
 
