@@ -279,6 +279,82 @@ body {
   color: #fff;
   cursor: pointer;
 }
+/* Form */
+.input {
+  width: 12rem;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.input:focus {
+  border-color: dodgerblue;
+  box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-btn {
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+}
+
+.password {
+  display: flex;
+  position: relative;
+}
+
+.password span {
+  position: absolute;
+  top: 25%;
+  left: 85%;
+  cursor: pointer;
+}
+
+.checkout-card {
+  background-color: white;
+  border-radius: 0.25rem;
+  position: relative;
+  box-shadow: 0 10px 16px 0px rgb(0 0 0 / 50%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.signin-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+  width: max-content;
+  margin: 0 auto;
+}
+.Signup,
+.Signin {
+  box-sizing: border-box;
+  background-color: #dcdcdc;
+  width: max-content;
+  padding: 1rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 3rem 0px;
+  border-radius: 0.2rem;
+}
+
 
 
 /***********/
