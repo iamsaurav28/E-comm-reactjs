@@ -33,7 +33,7 @@ function Footer() {
             </div>
             <div className='About'>
             <h2>SOCIAL</h2>
-          <li><a href="https://github.com/iamsaurav28/E-commerce/tree/Dev"><img src="https://img.icons8.com/ios-glyphs/30/000000/github.png"/></a></li>
+          <li><a href="https://github.com/iamsaurav28/E-comm-reactjs"><img src="https://img.icons8.com/ios-glyphs/30/000000/github.png"/></a></li>
           <li><a  href="/https://www.instagram.com/iamsaurav28/"><img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png"/></a></li>
           <li><a  href="https://twitter.com/iamdarji28"><img src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png"/></a></li>
             </div>

@@ -10,7 +10,7 @@ export function reducer(state, { type, payload }) {
       const newState = JSON.parse(JSON.stringify(state));
       const idx = state.cart.findIndex((el) => el.id === payload.id);
       if (idx === -1) {
-        newState.cart.push({ id: payload.id, quantity: 1 }); //adding
+        newState.cart.push({ id: payload.id, quantity: 1 }); 
         localStorage.setItem("JWT", JSON.stringify(newState));
         return newState;
       }

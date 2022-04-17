@@ -8,8 +8,6 @@ export const getProducts = async () => {
   }
 };
 
-
-
 export const getCart = async () => {
   const res = await axios.get(`${url}/products`);
   if (res.status === 200) {

@@ -63,10 +63,11 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
-      <Routes>
+        <Routes>
         <Route><Footer /></Route>
       </Routes>
+      </div>
+      
     </div>
   );
 }
